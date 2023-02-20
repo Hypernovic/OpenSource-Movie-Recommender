@@ -19,3 +19,8 @@ sklearn
 threadpoolctl
 urllib3
 Werkzeug
+Flask-SQLAlchemy
+Flask-Login
+SQLAlchemy
+cryptography
+Flask-Avatars
