@@ -1,0 +1,139 @@
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+:root {
+  --primary: #0d6efd;
+  --dark: #21252f;
+  --body: #888;
+  --white: #ffffff;
+  --box-shadow: 0 8px 22px rgba(0,0,0,0.1);
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    transition: all .25s;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #777;
+  }
+
+
+  .navbar {
+    box-shadow: var(--box-shadow);
+  }
+
+.logo {
+    width: 160px;
+}
+
+.navbar .nav-link {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.navbar .nav-link.active {
+    color: var(--primary) !important;
+}
+
+.scrollable-div{
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    align-self: center;
+    max-height: 90vh;
+}
+
+.card{
+    scroll-snap-align: start;
+}
+
+/* .btn .btn-rounded {
+    border-radius: 50px;
+    cursor: pointer !important;
+  } */
+
+.main-body {
+    overflow: hidden;
+    display: flex;
+    align-items:center;
+    justify-content: space-evenly;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+}
+
+
+.carousel-card{
+    max-height:80vh;
+}
+
+.carousel .carousel-item {
+    min-height: 55vh;
+    max-height: 80vh;}
+
+.carousel-item img {
+    position: absolute;
+    object-fit:scale-down;
+    top: 0;
+    left: 0;
+    height: 90%;
+}
+
+.card-text1{
+  column-count: 2;
+}
+
+
+@media only screen and (max-width:769px) {
+    .scrollable-div {
+      max-height: 60vh;
+    }
+  }
+
+  @media only screen and (max-width:993px) and (orientation:portrait) {
+    .scrollable-div {
+      max-height: 60vh;
+    }
+  }
+
+  @media only screen and (max-width:993px) and (orientation:landscape)  {
+      .main-body{
+        overflow-y: scroll;
+        display: flex;
+        align-items: flex-start;
+      }
+
+
+      .main-col{
+        scroll-snap-align: start;
+      }
+
+    .main-col .row{
+      height: 100vh;
+      align-items:center;
+    }
+
+    .scrollable-div {
+        max-height: 80vh;
+      }
+
+    
+
+    
+      
+  }
