@@ -47,8 +47,8 @@ app.app_context().push()
 
 from models import User
 
-engine = SQLAlchemy.create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
-inspector = SQLAlchemy.inspect(engine)
+# engine = SQLAlchemy.create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
+# inspector = SQLAlchemy.inspect(engine)
 
 
 def fetchdata():
@@ -59,12 +59,12 @@ def fetchdata():
     db.session.commit()
 
 
-if not inspector.has_table("Users"):
-    with app.app_context():
-        fetchdata()
-        app.logger.info('Initialized the database!')
-else:
-    app.logger.info('Database already contains the users table.')
+# if not inspector.has_table("Users"):
+#     with app.app_context():
+#         fetchdata()
+#         app.logger.info('Initialized the database!')
+# else:
+#     app.logger.info('Database already contains the users table.')
 
 
 
