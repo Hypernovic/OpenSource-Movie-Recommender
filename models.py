@@ -1,4 +1,4 @@
-from sqlalchemy import inspect
+from flask_sqlalchemy import inspect
 from flask_login import UserMixin
 from app import db
 

@@ -2,7 +2,6 @@ from flask import Blueprint, render_template
 from flask_login import login_required, current_user
 from flask import jsonify, request
 from models import User,MovieList
-from flask_sqlalchemy import SQLAlchemy
 from app import db
 import recommendation
 
@@ -44,7 +43,6 @@ def dummy():
 @login_required
 def search():
     res =recommendation.search(request.args.get('title'))
-    print(res)
     return jsonify(res)
 
 
