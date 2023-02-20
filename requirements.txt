@@ -23,3 +23,5 @@ Flask-Login
 SQLAlchemy
 cryptography
 Flask-Avatars
+gunicorn
+psycopg2-binary

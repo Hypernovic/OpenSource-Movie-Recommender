@@ -27,7 +27,7 @@ app.debug=True
 
 
 app.config['SECRET_KEY'] = 'secret-key-goes-here'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:12345678@localhost/movie'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://movierecommender_user:CGdtNqRjii9ZuCF3EQuwSTzGH55rXFSF@dpg-cfpri0h4rebfdaveb890-a/movierecommender'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 app.config['DEBUG'] = True
 
@@ -47,6 +47,8 @@ app.app_context().push()
 
 from models import User
 
+engine = SQLAlchemy.create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
+inspector = SQLAlchemy.inspect(engine)
 
 
 def fetchdata():
@@ -55,6 +57,15 @@ def fetchdata():
     db.create_all()
     print("Created new Tables")
     db.session.commit()
+
+
+if not inspector.has_table("Users"):
+    with app.app_context():
+        fetchdata()
+        app.logger.info('Initialized the database!')
+else:
+    app.logger.info('Database already contains the users table.')
+
 
 
 @login_manager.user_loader
