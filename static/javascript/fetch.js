@@ -1,4 +1,6 @@
-const link=window.location.href
+
+
+const link="https://movierecommender-e7xi.onrender.com/"
 
 
 dummyfetch()
