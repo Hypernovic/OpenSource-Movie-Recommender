@@ -8,20 +8,10 @@ from flask_login import LoginManager
 app = Flask(__name__)
 
 
-ENV="dev"
-
-if ENV=="dev":
-    app.debug=True
-else:
-    app.debug=False
-
-app.debug=True    
-
 
 app.config['SECRET_KEY'] = 'secret-key-goes-here'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://movierecommender_user:CGdtNqRjii9ZuCF3EQuwSTzGH55rXFSF@dpg-cfpri0h4rebfdaveb890-a/movierecommender'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
-app.config['DEBUG'] = True
 
 
 cors = CORS(app)
@@ -31,7 +21,6 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'auth.login'
 
 
-app.app_context().push()
 
 
 
