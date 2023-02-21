@@ -4,9 +4,8 @@ with Complete Login features.
 Made With Flask.
 
 ## Trials
+The Website Is Up and Running
 https://movierecommender-e7xi.onrender.com/
-[The Website Is Up and Running](
-https://movierecommender-e7xi.onrender.com/)
 
 
 ## Screenshots
