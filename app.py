@@ -63,6 +63,8 @@ app.register_blueprint(auth_blueprint)
 from main import main as main_blueprint
 app.register_blueprint(main_blueprint)
 
+from models import User
+
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port="8080", threaded=True)
