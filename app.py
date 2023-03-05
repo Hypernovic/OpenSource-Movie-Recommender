@@ -10,8 +10,7 @@ app = Flask(__name__)
 
 
 app.config['SECRET_KEY'] = 'secret-key-goes-here'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://movierecommender_user:CGdtNqRjii9ZuCF3EQuwSTzGH55rXFSF@dpg-cfpri0h4rebfdaveb890-a/movierecommender'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:12345678@localhost/movie'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://movierecommender_user:CGdtNqRjii9ZuCF3EQuwSTzGH55rXFSF@dpg-cfpri0h4rebfdaveb890-a/movierecommender'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
