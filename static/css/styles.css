@@ -54,26 +54,6 @@ body {
 
 
     
-.con{
-    overflow-x: hidden;
-    scroll-snap-type: y mandatory;
-    height: 100vh;
-}
-.con section{
-    padding-top: 1vh;
-    overflow: hidden;
-    scroll-snap-align: start;
-    min-height: 100vh;
-    max-height: fit-content;
-}
-
-.check{
-    z-index: 0;
-    position: relative;
-    color: var(--white) !important;
-
-}
-
 
 
 

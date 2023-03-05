@@ -1,7 +1,19 @@
 
 
-const link="https://movierecommender-e7xi.onrender.com/"
 
+
+function debounce(callback, wait) {
+    let timeout;
+    return (...args) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(function () { callback.apply(this, args); }, wait);
+    };
+  }
+  
+  document.getElementById("searchBox").addEventListener('input', debounce( (e) => {
+        console.log("aaa")
+        search((e.target).value)  
+  }, 500))
 
 dummyfetch()
 recommendedMovies()
@@ -9,7 +21,7 @@ favourites()
 
 function dummyfetch(){
     $("#filler2").empty()
-    fetch(link+"/dummy",{
+    fetch("/dummy",{
     method:"GET",   
     headers: {
         'Content-Type': 'application/json',
@@ -44,7 +56,7 @@ function dummyfetch(){
 
 function search(input){
     $("#filler2").empty()
-    fetch(link+"/search?title="+input,{
+    fetch("/search?title="+input,{
     method:"GET",
     headers: {
         'Content-Type': 'application/json',
@@ -76,7 +88,7 @@ function search(input){
 
 function favourites(){
     $("#filler3").empty()
-    fetch(link+"/favourites",{
+    fetch("/favourites",{
     method:"GET",   
     headers: {
         'Content-Type': 'application/json',
@@ -84,6 +96,13 @@ function favourites(){
     ).then(response => {
             return response.json()})
         .then(response => {
+            if(response.length==0){
+                $(".msg").css("display", "block");
+                document.getElementById("checkbox3").checked = false;
+            }else{
+                $(".msg").css("display", "none");
+                document.getElementById("checkbox1").checked = false;
+            }
             for(var i = 0; i < response.length; i++) {
                 var obj = response[i];
                     $("#filler3").append(
@@ -107,7 +126,7 @@ function favourites(){
 
 function recommendedMovies(){
     $("#filler1").empty()
-    fetch(link+"/recommended",{
+    fetch("/recommended",{
     method:"GET",   
     headers: {
         'Content-Type': 'application/json',
@@ -146,7 +165,7 @@ function confirm(elementhide){
         movieName=$(Clicked).find('.card-title').text();
         moviePic=$(Clicked).find('img').attr('src');
 
-        fetch(link+"/add",{
+        fetch("/add",{
             method:"POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -174,7 +193,7 @@ function remove(elementhide){
     elementhide.remove()
     movieName=$(Clicked).find('.card-title').text();
 
-    fetch(link+"/remove",{
+    fetch("/remove",{
         method:"POST",
         headers: {
             'Content-Type': 'application/json',
